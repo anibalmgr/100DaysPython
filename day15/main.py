@@ -1,10 +1,10 @@
-# TODO: 1. Create variable RECIPES.
+#  Create variable RECIPES.
 RECIPES = {
     "espresso": {"water": 50, "coffee": 18, "dollars": 1.5},
     "latte": {"water": 200, "coffee": 24, "milk": 150, "dollars": 2.5},
     "cappuccino": {"water": 250, "coffee": 24, "milk": 100, "dollars": 3.0}
 }
-# TODO: 2. Create variable resources.
+# Create variable resources.
 resources = {
     "water": 2000,
     "coffee": 250,
@@ -12,7 +12,7 @@ resources = {
     "dollars": 0,
 }
 
-# TODO: 3. report() return resources
+# report() return resources
 def report():
     print(f'''
 Coffee: {resources["coffee"]}gr.
@@ -22,7 +22,7 @@ Milk: {resources["milk"]}ml.
 Money: ${resources["dollars"]}
 ''')
 
-# TODO: 8. off() ends the while loop.
+# off() ends the while loop.
 machine_on = True
 
 
@@ -30,7 +30,7 @@ def off():
     machine_on = False
     return machine_on
 
-# TODO: 4. check(recipe) returns True if resources are enough, false if not.
+# check(recipe) returns True if resources are enough, false if not.
 
 
 def choose(user_input):
@@ -50,7 +50,7 @@ def check(recipe):
                 ingredients = False
     return ingredients
 
-# TODO: 5. coins() transform all coins into a unique value.
+# coins() transform all coins into a unique value.
 
 
 def add_money():
@@ -61,8 +61,7 @@ def add_money():
     total = round(quarter * 0.25 + dime * 0.1 + nickle * 0.05 + pennie * 0.01, 2)
     return total
 
-# TODO: 6. payment() takes the final paid amount, check it against the coffee price, returns True id money is enough.
-
+# payment() takes the final paid amount, check it against the coffee price, returns True id money is enough.
 
 def payment(total, choice):
     if total < choice["dollars"]:
@@ -77,7 +76,7 @@ def payment(total, choice):
         return True
 
 
-# Todo: 7. make() passes recipe, takes resources, return coffee
+# make() passes recipe, takes resources, return coffee
 
 def make(coffee):
     for ingredient in coffee:
@@ -85,9 +84,7 @@ def make(coffee):
             resources[ingredient] -= coffee[ingredient]
     return resources
 
-# Todo: 9. recharge() transform money in coffee, milk or water.
-
-# TODO: 10. machine()
+# machine()
 
 def machine():
     machine_on = True
@@ -106,8 +103,6 @@ def machine():
                 resources = make(choice)
                 print(f"Thank you, enjoy your {user_input}")
         report()
-
-
 
 
 machine()
