@@ -14,6 +14,7 @@ resources = {
 
 # report() return resources
 def report():
+    """Print the current resources in the coffee machine"""
     print(f'''
 Coffee: {resources["coffee"]}gr.
 Water: {resources["water"]}ml.
@@ -27,6 +28,7 @@ machine_on = True
 
 
 def off():
+    """return machine = False"""
     machine_on = False
     return machine_on
 
@@ -34,6 +36,7 @@ def off():
 
 
 def choose(user_input):
+    """Takes a string with the kind of coffee and return a dictionary with the selected coffee."""
     if user_input == "off" or user_input == "report":
         return user_input
     else:
@@ -42,6 +45,7 @@ def choose(user_input):
 
 
 def check(recipe):
+    """Checks if the ingredients are enough in the machine resources, returns a boolean."""
     ingredients = True
     for resource in recipe:
         if resource != "dollars":
@@ -54,6 +58,7 @@ def check(recipe):
 
 
 def add_money():
+    """Takes different coins and returns the addition of the total"""
     quarter = int(input("quarters: "))
     dime = int(input("dimes: "))
     nickle = int(input("nickles: "))
@@ -64,6 +69,7 @@ def add_money():
 # payment() takes the final paid amount, check it against the coffee price, returns True id money is enough.
 
 def payment(total, choice):
+    """pass the total paid and return a boolean depending if the transaction was successful or not"""
     if total < choice["dollars"]:
         print(f"total: {total} price: {choice['dollars']}")
         print("Sorry that's not enough money. Money refunded.")
@@ -79,6 +85,7 @@ def payment(total, choice):
 # make() passes recipe, takes resources, return coffee
 
 def make(coffee):
+    """takes a king of coffee and return the resources left."""
     for ingredient in coffee:
         if ingredient != "dollars":
             resources[ingredient] -= coffee[ingredient]
