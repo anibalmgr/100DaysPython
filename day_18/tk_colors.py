@@ -91,6 +91,6 @@ def rdm_rgb_color(colour = False, amount = 100):
         elif colour == "g":
             green_start = amount
         elif colour == "b":
-            blue_start == amount
+            blue_start = amount
     color = randint(red_start, 255), randint(green_start, 255), randint(blue_start, 255)
     return color

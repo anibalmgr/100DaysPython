@@ -1,6 +1,7 @@
-import colorgram
-from random import randint, choice
+# import colorgram
+from random import choice
 from turtle import Turtle, Screen, colormode
+from tk_colors import rdm_rgb_color
 
 # colours = colorgram.extract('playa.jpg', 30)
 # rgb_colours = []
@@ -16,10 +17,12 @@ colours = [(131, 166, 211), (156, 189, 235), (105, 92, 74), (44, 35, 25), (169, 
 
 tim = Turtle()
 tim.penup()
+tim.hideturtle()
+tim.speed(10)
 colormode(255)
 
 def dot():
-    colour = choice(colours)
+    colour = rdm_rgb_color("b", 255)
     tim.dot(20, colour); tim.fd(50)
 
 def line(length):
