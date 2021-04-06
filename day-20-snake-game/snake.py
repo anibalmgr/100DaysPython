@@ -7,6 +7,7 @@ DOWN = 270
 LEFT = 180
 RIGHT = 0
 
+
 class Snake:
     """"returns a snake"""
     def __init__(self):
@@ -15,13 +16,18 @@ class Snake:
         self.head = self.segments[0]
 
     def create_snake(self):
-
         for position in STARTING_POSITIONS:
-            seg = Turtle("square")
-            seg.color("white")
-            seg.penup()
-            seg.goto(position)
-            self.segments.append(seg)
+            self.add_segment(position)
+
+    def add_segment(self, position):
+        new_seg = Turtle("circle")
+        new_seg.color("white")
+        new_seg.penup()
+        new_seg.goto(position)
+        self.segments.append(new_seg)
+
+    def extend(self):
+        self.add_segment(self.segments[-1].position())
 
     def move(self):
         for seg in range(len(self.segments) - 1, 0, -1):
@@ -44,3 +50,10 @@ class Snake:
     def right(self):
         if self.head.heading() != LEFT:
             self.head.seth(0)
+
+    def detect_collision(self):
+        collision = False
+        for segment in self.segments[1: -1]:
+            if segment.distance(self.head) < 10:
+                collision = True
+        return collision
