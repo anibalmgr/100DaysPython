@@ -16,10 +16,10 @@ ball = Ball()
 scoreboard = Scoreboard()
 
 screen.listen()
-screen.onkey(player1.go_up, "w")
-screen.onkey(player1.go_down, "s")
-screen.onkey(player2.go_up, "Up")
-screen.onkey(player2.go_down, "Down")
+screen.onkeypress(player1.go_up, "w")
+screen.onkeypress(player1.go_down, "s")
+screen.onkeypress(player2.go_up, "Up")
+screen.onkeypress(player2.go_down, "Down")
 
 game_is_on = True
 while game_is_on:
